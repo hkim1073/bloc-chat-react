@@ -1,26 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component} from 'react';
+import { Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
+import * as firebase from 'firebase';
+import RoomList from './components/RoomList';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const firebaseConfig = {
+      apiKey: "AIzaSyC_DOtuAd0eNTIV5k3I2gDN6-QPCn_u6LU",
+      authDomain: "bloc-chat-react-d1331.firebaseapp.com",
+      databaseURL: "https://bloc-chat-react-d1331.firebaseio.com",
+      projectId: "bloc-chat-react-d1331",
+      storageBucket: "",
+      messagingSenderId: "161676084102",
+      appId: "1:161676084102:web:79274380ce503f04"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+class App extends Component {
+  render () {
+    return (
+      <div className= "App">
+        <header>
+        </header>
+        <main>
+        <BrowserRouter>
+          <Route path="/RoomList" component={() => <RoomList firebase={firebase} />} />
+        </BrowserRouter>
+        </main>
+      </div>
+    )
+  }
 }
+
 
 export default App;
