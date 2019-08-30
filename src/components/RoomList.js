@@ -18,6 +18,14 @@ class RoomList extends Component {
     });
   }
 
+  createRoom() {
+    this.roomsRef.push({ name: newRoomName });
+    this.roomsRef.then((snapshot) => {
+      this.roomsRef.child_added(snapshot.key).update({"id": snapshot.key})
+
+    });
+  }
+
   render() {
     return (
       <div>
