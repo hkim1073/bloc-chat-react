@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import { Route, BrowserRouter } from 'react-router-dom';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
@@ -23,9 +22,7 @@ class App extends Component {
         <header>
         </header>
         <main>
-        <BrowserRouter>
-          <Route path="/RoomList" component={() => <RoomList firebase={firebase} />} />
-        </BrowserRouter>
+          <RoomList firebase={firebase} />
         </main>
       </div>
     )
